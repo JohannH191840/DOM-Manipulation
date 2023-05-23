@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Book list</title>
+</head>
+<body>
+    <style>
+        .read {
+          color: green;
+        }
+        .unread {
+          color: red;
+        }
+      </style>
+    </head>
+    <body>
+      <h1>My Book List</h1>
+      <ul id="book-list"></ul>
+    
+      <script>
+        var books = [
+          {
+            title: 'The Design of EveryDay Things',
+            author: 'Don Norman',
+            alreadyRead: false,
+            coverUrl: 'https://mit-press-us.imgix.net/covers/9780262640374.jpg?auto=format&w=298&dpr=1&q=20'
+          }, 
+          {
+            title: 'The Most Human Human',
+            author: 'Brian Christian',
+            alreadyRead: true,
+            coverUrl: 'https://brianchristian.org/images/The-Most-Human-Human-Paperback-Front-Cover.jpg'
+          }
+        ];
+    
+        var bookList = document.getElementById('book-list');
+    
+        books.forEach(function(book) {
+          var li = document.createElement('li');
+          li.className = book.alreadyRead ? 'read' : 'unread';
+    
+          var img = document.createElement('img');
+          img.src = book.coverUrl;
+          li.appendChild(img);
+    
+          var p = document.createElement('p');
+          p.textContent = book.title + ' by ' + book.author;
+          li.appendChild(p);
+    
+          bookList.appendChild(li);
+        });
+      </script>
+</body>
+</html>
